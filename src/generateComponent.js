@@ -31,12 +31,13 @@ import {
 interface I${componentName}Props extends SvgProps {
 }
 
-export const ${componentName}: React.FC<I${componentName}Props> = () => {
+export const ${componentName}: React.FC<I${componentName}Props> = ({...props}) => {
   return (
 ${svgOutput
   .split("\n")
   .map((line) => `    ${line}`)
-  .join("\n")}
+  .join("\n")
+  .replace(">", " {...props} >")}
   )
 }
 `;
