@@ -26,7 +26,7 @@ const args = yargs
   .option("format", { default: true })
   .option("output", { alias: "o" })
   .option("rm-style", { default: false })
-  .option("force", { alias: "f", default: true }).argv;
+  .option("force", { alias: "f", default: false }).argv;
 
 // Resolve arguments
 const firstArg = args._[0];

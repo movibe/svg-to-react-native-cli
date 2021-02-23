@@ -20,10 +20,10 @@ import {
   Stop
 } from 'react-native-svg'
 
-interface ITestSvgProps extends SvgProps {
+interface ITestProps extends SvgProps {
 }
 
-export const TestSvg: React.FC<ITestSvgProps> = () => {
+export const Test: React.FC<ITestProps> = () => {
   return (
     <Svg height="128px" id="Layer_1" width="128px" version="1.1" viewBox="0 0 128 128" x="0px" y="0px" xmlSpace="preserve">
       <G>

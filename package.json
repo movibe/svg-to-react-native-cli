@@ -1,7 +1,7 @@
 {
-  "name": "svg-to-react-native-cli",
+  "name": "svg-to-tsx-react-native-cli",
   "version": "0.0.3",
-  "description": "Based on svg-to-react-cli. A command line utility that takes a svg image file and outputs a fully formatted stateless functional React Native component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.",
+  "description": "Based on svg-to-tsx-react-cli-cli. A command line utility that takes a svg image file and outputs a fully formatted stateless functional React Native component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.",
   "main": "index.js",
   "dependencies": {
     "chalk": "^1.1.3",
@@ -11,11 +11,11 @@
     "yargs": "^6.5.0"
   },
   "scripts": {
-    "test": "node index.js ./src/test-svgs/test TestSvg --output ./src/test-svgs/"
+    "test": "node index.js --dir ./src/test-svgs/svgs --output ./src/test-svgs/components"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisbull/svg-to-react-native-cli.git"
+    "url": "git+https://github.com/movibe/svg-to-tsx-react-native-cli.git"
   },
   "keywords": [
     "react",
@@ -26,10 +26,10 @@
   "author": "Chris Bull <chris@siteappy.com> (http://siteappy.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrisbull/svg-to-react-native-cli/issues"
+    "url": "https://github.com/movibe/svg-to-tsx-react-native-cli/issues"
   },
-  "homepage": "https://github.com/chrisbull/svg-to-react-native-cli#readme",
+  "homepage": "https://github.com/movibe/svg-to-tsx-react-native-cli#readme",
   "bin": {
     "svg-to-react-native": "./index.js"
-  } 
+  }
 }
