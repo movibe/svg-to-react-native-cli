@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Creates a full component string based upon provided svg data and a component name
@@ -7,7 +7,8 @@
  * @return string               The parsed component string
  */
 module.exports = (svgOutput, componentName) => `
-import React from 'react';
+import React from 'react'
+import Svg, { Path, SvgProps } from 'react-native-svg'
 import {
   Svg,
   Circle,
@@ -25,14 +26,17 @@ import {
   Use,
   Defs,
   Stop
-} from 'react-native-svg';
+} from 'react-native-svg'
 
-export default function ${componentName}(props) {
+interface I${componentName}Props extends SvgProps {
+}
+
+export const ${componentName}: React.FC<I${componentName}Props> = () => {
   return (
 ${svgOutput
-  .split('\n')
-  .map(line => `    ${line}`)
-  .join('\n')}
-  );
+  .split("\n")
+  .map((line) => `    ${line}`)
+  .join("\n")}
+  )
 }
 `;
