@@ -8,7 +8,6 @@
  */
 module.exports = (svgOutput, componentName) => `
 import React from 'react'
-import Svg, { Path, SvgProps } from 'react-native-svg'
 import {
   Svg,
   Circle,
@@ -25,7 +24,8 @@ import {
   Text,
   Use,
   Defs,
-  Stop
+  Stop,
+  SvgProps
 } from 'react-native-svg'
 
 interface I${componentName}Props extends SvgProps {
