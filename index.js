@@ -24,6 +24,7 @@ const replaceAllStrings = require("./src/replaceAllStrings");
 const args = yargs
   .option("dir", { alias: "d", default: false })
   .option("format", { default: true })
+  .option("pre", { default: false })
   .option("output", { alias: "o" })
   .option("rm-style", { default: false })
   .option("force", { alias: "f", default: false }).argv;
@@ -35,6 +36,7 @@ const outputPath = args.output;
 const directoryPath = args.dir;
 const rmStyle = args.rmStyle;
 const format = args.format;
+const pre = args.pre;
 
 // Bootstrap base variables
 const svg = `./${firstArg}.svg`;
@@ -133,9 +135,10 @@ const runUtil = (fileToRead, fileToWrite) => {
         if (format) jsx = formatSVG(jsx);
 
         // Wrap it up in a React component
-        jsx = generateComponent(jsx, fileToWrite);
+        const name = pre ? `Svg${fileToWrite}` : fileToWrite;
+        jsx = generateComponent(jsx, name);
 
-        writeFile(jsx, fileToWrite);
+        writeFile(jsx, name);
       });
     });
   });

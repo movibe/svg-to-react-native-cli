@@ -27,6 +27,8 @@ or for all files in directory (will name all components in CamelCase based on im
 
 `--help` - Prints out this readme.
 
+`--pre` - Prename with Svg, sample: Logo generate SvgLogo.tsx.
+
 `--example` - Prints an example of the i/o of this util.
 
 ## Example
