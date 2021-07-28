@@ -28,8 +28,7 @@ import {
   SvgProps
 } from 'react-native-svg'
 
-interface I${componentName}Props extends SvgProps {
-}
+export type I${componentName}Props = SvgProps
 
 export const ${componentName}: React.FC<I${componentName}Props> = ({...props}) => {
   return (
