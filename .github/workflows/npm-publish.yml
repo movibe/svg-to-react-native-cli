@@ -15,7 +15,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-          registry-url: https://npm.pkg.github.com/
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@movibe'
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
