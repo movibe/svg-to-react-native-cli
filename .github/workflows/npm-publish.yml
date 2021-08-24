@@ -1,17 +1,43 @@
-name: Npm Publish
+name: Release
 on:
- release:
- types: [published]
+  push:
+    branches:
+      - main
 jobs:
-  build:
-   runs-on: ubuntu-latest
+  release:
+    runs-on: ubuntu-latest
     steps:
-      — uses: actions/checkout@v2
-      — uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup
+        uses: actions/setup-node@v1
         with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      — run: yarn install
-      — run: npm publish — access public
+          node-version: 14
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Create Tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
         env:
-         NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          release_name: ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+
+      - name: Commit Updated Version
+        run: npm version ${{ steps.tag_version.outputs.new_version }}
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
