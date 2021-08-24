@@ -15,10 +15,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://npm.pkg.github.com/
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Update Github Name
+        run: git config user.name "Willian Ribeiro Angelo"
+
+      - name: Update Github Email
+        run: git config user.email agfoccus@gmail.com
 
       - name: Create Tag
         id: tag_version
