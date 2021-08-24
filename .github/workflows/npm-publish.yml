@@ -20,6 +20,12 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Update Github Name
+        run: git config user.name "Willian Ribeiro Angelo"
+
+      - name: Update Github Email
+        run: git config user.email agfoccus@gmail.com
+
       - name: Create Tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.3
