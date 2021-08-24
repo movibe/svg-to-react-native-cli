@@ -1,5 +1,9 @@
 {
   "name": "svg-to-tsx-react-native-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/movibe/svg-to-tsx-react-native-cli.git"
+  },
   "version": "0.0.7",
   "description": "Based on svg-to-tsx-react-cli-cli. A command line utility that takes a svg image file and outputs a fully formatted stateless functional React Native component with `height` and `width` for props. With flags to toggle formatting and remove style attributes.",
   "main": "index.js",
@@ -13,10 +17,6 @@
   "scripts": {
     "test": "node index.js --dir ./src/test-svgs/svgs --output ./src/test-svgs/components",
     "pre": "node index.js --dir ./src/test-svgs/svgs --output ./src/test-svgs/components --pre"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/movibe/svg-to-tsx-react-native-cli.git"
   },
   "keywords": [
     "react",
